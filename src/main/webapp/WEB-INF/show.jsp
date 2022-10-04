@@ -27,6 +27,7 @@
         <p>Language: <c:out value="${expense.vendor}"/></p>
         <p>Pages: <c:out value="${expense.amount}"/></p>
         <p>Description: <c:out value="${expense.description}"/></p>
+        <a href="/expenses/${expense.id}/edit">Edit</a>
       </div>
     </div>
   </div>

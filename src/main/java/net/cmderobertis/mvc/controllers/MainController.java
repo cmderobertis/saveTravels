@@ -55,4 +55,20 @@ public class MainController {
             return "redirect:/expenses";
         }
     }
+    @RequestMapping("/expenses/{id}/edit")
+    public String edit(@PathVariable("id") Long id, Model model) {
+        Expense expense = expenseService.getOne(id);
+        model.addAttribute("expense", expense);
+        return "update.jsp";
+    }
+
+    @RequestMapping(value="/expenses/{id}", method=RequestMethod.PUT)
+    public String update(@Valid @ModelAttribute("expense") Expense expense, BindingResult result) {
+        if (result.hasErrors()) {
+            return "update.jsp";
+        } else {
+            expenseService.updateExpense(expense);
+            return "redirect:/expenses";
+        }
+    }
 }

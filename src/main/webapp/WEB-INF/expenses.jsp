@@ -29,13 +29,15 @@
               <th>Vendor</th>
               <th>Amount</th>
               <th>Description</th>
+              <th>Actions</th>
             </tr>
             <c:forEach var="expense" items="${expenses}">
               <tr>
                 <td><a href="/expenses/${expense.id}"><c:out value="${expense.name}"/></a></td>
                 <td><c:out value="${expense.vendor}"/></td>
-                <td><c:out value="${expense.amount}"/></td>
+                <td><c:out value="$${expense.amount}"/></td>
                 <td><c:out value="${expense.description}"/></td>
+                <td><a href="/expenses/${expense.id}/edit">Edit</a></td>
               </tr>
             </c:forEach>
           </table>

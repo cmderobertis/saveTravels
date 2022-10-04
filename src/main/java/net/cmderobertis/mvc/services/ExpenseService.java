@@ -32,12 +32,12 @@ public class ExpenseService {
         return optionalExpense.orElse(null);
     }
 
-    public Expense updateExpense(Long id, String name, String vendor, Double amount, String description) {
-        Expense e = getOne(id);
-        e.setName(name);
-        e.setVendor(vendor);
-        e.setAmount(amount);
-        e.setDescription(description);
+    public Expense updateExpense(Expense expense) {
+        Expense e = getOne(expense.getId());
+        e.setName(expense.getName());
+        e.setVendor(expense.getVendor());
+        e.setAmount(expense.getAmount());
+        e.setDescription(expense.getDescription());
         return expenseRepository.save(e);
     }
 
