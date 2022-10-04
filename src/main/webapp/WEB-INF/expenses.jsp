@@ -37,7 +37,13 @@
                 <td><c:out value="${expense.vendor}"/></td>
                 <td><c:out value="$${expense.amount}"/></td>
                 <td><c:out value="${expense.description}"/></td>
-                <td><a href="/expenses/${expense.id}/edit">Edit</a></td>
+                <td>
+                  <a href="/expenses/${expense.id}/edit">Edit</a>
+                  <form action="/expenses/${expense.id}" method="post">
+                    <input type="hidden" name="_method" value="delete">
+                    <input type="submit" value="Delete" class="btn btn-danger">
+                  </form>
+                </td>
               </tr>
             </c:forEach>
           </table>

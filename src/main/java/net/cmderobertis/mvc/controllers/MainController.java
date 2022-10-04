@@ -71,4 +71,9 @@ public class MainController {
             return "redirect:/expenses";
         }
     }
+    @DeleteMapping("/expenses/{id}")
+    public String delete(@PathVariable("id") Long id) {
+        expenseService.deleteExpense(id);
+        return "redirect:/expenses";
+    }
 }
